@@ -1,0 +1,15 @@
+#include <bits/stdc++.h> 
+int findDuplicate(vector<int> &arr, int n){
+    unordered_map<int,int> umap;
+    for(auto it:arr)
+    {
+        umap[it]++;
+    }
+    for(auto sp:umap)
+    {
+        if(sp.second>1)
+        {
+            return sp.first;
+        }
+    }
+}
