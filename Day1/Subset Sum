@@ -1,0 +1,19 @@
+void subssum(int ind,int sum,vector<int> &ds,vector<int> &num,int N)
+{
+    if(ind==N)
+    {
+        ds.push_back(sum);
+        return;
+    }
+    subssum(ind+1,sum+num[ind],ds,num,N);
+    subssum(ind+1,sum,ds,num,N);
+}
+vector<int> subsetSum(vector<int> &num)
+{
+    // Write your code here.
+    int N=num.size();
+    vector<int> ds;
+    subssum(0,0,ds,num,N);
+    sort(ds.begin(),ds.end());
+    return ds;
+}
