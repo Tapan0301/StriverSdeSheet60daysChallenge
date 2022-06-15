@@ -1,0 +1,28 @@
+void find(int ind,int n,int target,vector<int> &arr,vector<int> &ds,vector<vector<int>> &ans)
+{
+   
+    if(ind==n)
+    {
+        if(target==0)
+        {
+            ans.push_back(ds);
+        }
+        return;
+    }
+    else
+    {
+        ds.push_back(arr[ind]);
+        find(ind+1,n,target-arr[ind],arr,ds,ans);
+        ds.pop_back();
+        
+    }
+    find(ind+1,n,target,arr,ds,ans);
+}
+vector<vector<int>> findSubsetsThatSumToK(vector<int> arr, int n, int k)
+{
+    // Write your code here.
+    vector<vector<int>> ans;
+    vector<int> ds;
+    find(0,n,k,arr,ds,ans);
+    return ans;
+}
