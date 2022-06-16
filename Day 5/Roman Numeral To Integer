@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+int romanToInt(string s) {
+    // Write your code here
+    int ans=0;
+    vector<int> vec;
+    int n=s.size();
+    for(auto it:s)
+    {
+        if(it=='I') vec.push_back(1);
+        else if(it=='V') vec.push_back(5);
+        else if(it=='X') vec.push_back(10);
+        else if(it=='L') vec.push_back(50);
+        else if(it=='C') vec.push_back(100);
+        else if(it=='D') vec.push_back(500);
+        else if(it=='M') vec.push_back(1000);
+    }
+    for(int i=0;i<n-1;i++)
+    {
+        if(vec[i]>=vec[i+1]) ans+=vec[i];
+        else
+            ans-=vec[i];
+    }
+    ans+=vec[n-1];
+    return ans;
+}
