@@ -1,0 +1,15 @@
+int atoi(string str) {
+    // Write your code here.
+    string ans="";
+    if(str[0]=='-') ans+="-";
+    for(int it=0;it<str.size();it++)
+    {
+        if(str[it]>='0' && str[it]<='9')
+        {
+            ans+=str[it];
+        }
+    }
+    if(ans.size()==0 || ans=="-") return 0;
+    int intdata1 = stoi (ans);
+    return intdata1;
+}
