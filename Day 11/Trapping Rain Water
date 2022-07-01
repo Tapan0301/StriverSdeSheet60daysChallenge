@@ -1,0 +1,28 @@
+#include <bits/stdc++.h> 
+long getTrappedWater(long *height, int n){
+    // Write your code here.
+    //int n=height.size();
+        long long left=0;
+        long long right=n-1;
+        long long maxleft=0;
+        long long maxright=0;
+        long ans=0;
+        while(left<=right)
+        {
+            if(height[left]<=height[right])
+            {
+                if(height[left]>=maxleft) maxleft=height[left];
+                else
+                    ans+=maxleft-height[left];
+                left++;
+            }
+            else
+            {
+                if(height[right]>=maxright) maxright=height[right];
+                else
+                    ans+=maxright-height[right];
+                right--;
+            }
+        }
+        return ans;
+}
