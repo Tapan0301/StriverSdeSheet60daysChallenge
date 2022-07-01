@@ -1,0 +1,19 @@
+int longestSubSeg(vector<int> &nums , int n, int k){
+    //int n=nums.size();
+        int maxi=0;
+        int left=-1;
+        int count=0;
+        int length=0;
+        for(int right=0;right<n;right++)
+        {
+            if(nums[right]==0) count++;
+            while(count>k)
+            {
+                left++;
+                if(nums[left]==0) count--;
+            }
+            length=right-left;
+            if(length>maxi) maxi=length;
+        }
+        return maxi;
+}
